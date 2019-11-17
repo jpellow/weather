@@ -1,20 +1,32 @@
 $(document).ready(function () {
 
     getWeather("austin");
-
+    load();
+    function load(){
+        for (i = 1; i < localStorage.length + 1; i++){
+            newCity(localStorage.getItem("city" + i));
+            console.log(i)
+        }
+    }
     $("#search").on("click", function () {
         var city = $("#cityInput").val();
+        var count = 0;
         getWeather(city);
-        var newCity = $("<button>").text(city);
-        newCity.addClass("row h2 btn btn-outline-secondary btn-lg btn-block");
-        newCity.attr("id", "cityBtn");
-        $("#cities").append(newCity);
-        localStorage.setItem(city, city)
+        newCity(city);
+        localStorage.setItem("city" + (localStorage.length + 1), city);
     })
     $(document).on("click", "#cityBtn", function(){
         getWeather($(this).text());
         console.log("yup");
     });
+
+    function newCity(city){
+        var newCity = $("<button>").text(city);
+        newCity.addClass("row h2 btn btn-outline-secondary btn-lg btn-block");
+        newCity.attr("id", "cityBtn");
+        $("#cities").append(newCity);
+
+    }
 
     function getWeather(city) {
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + ",us&APPID=72a4e95acd20695f9d45b7d4270004be"
