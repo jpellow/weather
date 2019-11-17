@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="./lib/moment.js/moment.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="./style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- <script type="text/javascript">
+        var lat;
+    var lng;
+    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      
+      function showPosition(position) {
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+        console.log(lat);
+        console.log(lng);
+
+      }
+      var queryURL = "https://api.songkick.com/api/3.0/search/locations.json?location=geo:"+lat+","+lng+"&apikey="+apiKey
+      var apiKey = "eWIxuDJ59JLKMebO";
+  
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    })
+
+    </script> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col bg-dark text-light text-center h1 p-3 m-0">
+                Weather Dashboard
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 bg-light mt-3 h-100">
+                <div class="row">
+                    <label class="ml-2">Search for a City:</label>
+                    <input type="text" class="form-control col-10 ml-2 mb-2" id="cityInput">
+                    <button class="btn btn-info col-1 text-center mb-2" id="search">S</button>
+                </div>
+            </div>
+            <div class="col-7 border m-3">
+                <div class="row h1 m-4" id="city"></div>
+                <div class="row m-3 ml-4" id="temp"></div>
+                <div class="row m-3 ml-4" id="humid"></div>
+                <div class="row m-3 ml-4" id="wind"></div>
+                <div class="row m-3 ml-4" id="uv">UV Index: </div>
+            </div>
+            <div class="col-7 offset-md-4">
+                <div class="row h1">5 Day Forecast:</div>
+                <div class="row p-1">
+                    <div class="col-2 mr-4 ml-2 bg-primary rounded" id="card">
+                        <div class="row mb-4 h4 text-light date" id="cardDate0"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardIcon0"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardTemp0"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardHumid0"></div>
+                    </div>
+                    <div class="col-2 mr-4 bg-primary rounded" id="card">
+                        <div class="row mb-4 h4 text-light date" id="cardDate7"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardIcon7"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardTemp7"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardHumid7"></div>
+                    </div>
+                    <div class="col-2 mr-4 bg-primary rounded" id="card">
+                        <div class="row mb-4 h4 text-light date" id="cardDate15"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardIcon15"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardTemp15"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardHumid15"></div>
+                    </div>
+
+                    <div class="col-2 mr-4 bg-primary rounded" id="card">
+                        <div class="row mb-4 h4 text-light date" id="cardDate23"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardIcon23"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardTemp23"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardHumid23"></div>
+                    </div>
+
+                    <div class="col-2 mr-4 bg-primary rounded" id="card">
+                        <div class="row mb-4 h4 text-light date" id="cardDate31"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardIcon31"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardTemp31"></div>
+                        <div class="row m-1 mb-4 text-light" id="cardHumid31"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script> -->
+        <script src="./script.js"></script>
+
+</body>
+
+</html>
