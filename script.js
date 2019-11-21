@@ -47,9 +47,9 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             for (i = 0; i < response.list.length; i++) {
-                // console.log(i);
+                console.log(response.list[i].weather[0].description);
                 $("#cardDate" + i).text((response.list[i].dt_txt).substring(0, 10));
-                $("#cardIcon" + i).text(response.list[i].clouds.all);
+                $("#cardIcon" + i).text(response.list[i].weather[0].description);
                 $("#cardTemp" + i).text("Temp: " + ((response.list[i].main.temp - 273.15) * 9 / 5 + 32).toFixed(2) + " F");
                 $("#cardHumid" + i).text("Humidity:" + response.list[i].main.humidity + "%");
                 if (i == 0) {
